@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "canvas": "^2.3.1",
-    "express": "^4.16.4",
-    "humanize-duration": "^3.17.0"
+    "humanize-duration": "^3.17.0",
+    "shields-lightweight": "^0.1.0"
   },
   "devDependencies": {
+    "express": "^4.16.4",
     "nodemon": "^1.18.10"
   },
   "scripts": {
