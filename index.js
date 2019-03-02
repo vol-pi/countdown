@@ -1,7 +1,7 @@
 const { parse } = require("url");
 const { createCanvas } = require("canvas");
 const humanizeDuration = require("humanize-duration");
-var badge = require("badge-up");
+var shields = require('shields-lightweight');
 
 module.exports = (req, res) => {
   const canvas = createCanvas(400, 20);
@@ -19,11 +19,10 @@ module.exports = (req, res) => {
   ctx.fillText(prefix + humanizeDuration(diff), 0, 15);
 
   if (ts > 0) {
-    badge("batman", "component", badge.colors.green, function(error, svg) {
-        res.setHeader("content-type", "image/svg+xml");
+    var svg = shields.svg('countdown', prefix + humanizeDuration(diff), 'red', 'flat');
+    res.setHeader("content-type", "image/svg+xml");
         // res.end(canvas.toBuffer());
         res.end(svg);
-    });
   }
 
   res.end("invalid timestamp");
